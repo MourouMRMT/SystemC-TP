@@ -2,44 +2,45 @@
 
 void AltBit::altbit()
 {
-	state=E0;
-	Err.write(0);
+	etat=E0;
+	//Err.write(0);
+	
 	while(1)
 	{
 		wait(H.posedge_event());
 		switch(etat)
 		{
 			case E0:
-				if(E.read()=1)
+				
+				if(E.read()==1)
 				{
+					etat=E2;
+					Err.write(0);
+				}else{
 					etat=E1;
-				}else
-				{
-					s.write(0);	
-					etat=E0;
+					Err.write(0);
 				}
 				break;
 			case E1:
-				if(E.read()=1)
+				if(E.read()==1)
 				{
-					s.write(1);
 					etat=E2;
-					
+					Err.write(0);
 				}else
 				{
-					s.write(0);	
-					etat=E0;
+					Err.write(1);
 				}
 				break;
 
 			case E2:
-				if(E.read()=1)
+				if(E.read()==1)
 				{
-					s.write(1);					
+					Err.write(1);					
 				}else
 				{
-					s.write(0);	
+					Err.write(0);
 					etat=E0;
+					
 				}
 				break;			
 		}

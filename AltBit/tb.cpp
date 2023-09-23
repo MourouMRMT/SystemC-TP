@@ -3,7 +3,7 @@
 
 int sc_main(int argc,char *argv[])
 {
-	sc_clock clk("clk",10,SC_NS);
+	sc_clock clk("clk",10,SC_NS,0.5,5,SC_NS);
 	sc_signal<bool> E;
 	sc_signal<bool> Err;
 	
