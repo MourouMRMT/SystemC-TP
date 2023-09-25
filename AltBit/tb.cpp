@@ -14,7 +14,7 @@ int sc_main(int argc,char *argv[])
 	sc_trace(my_trace,Err,"Err");
 
 	AltBit myaltbit("alt1");
-	myaltbit(clk,E,Err);
+	myaltbit(E,clk,Err);
 	
 	E=0;
 	sc_start(10,SC_NS);
@@ -30,6 +30,9 @@ int sc_main(int argc,char *argv[])
 	sc_start(10,SC_NS);
 	E=0;
 	sc_start(30,SC_NS);
+	E=1;
+	sc_start(30,SC_NS);
+	
 	
 	sc_close_vcd_trace_file(my_trace);
 	

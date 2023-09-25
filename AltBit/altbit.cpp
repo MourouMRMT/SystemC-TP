@@ -4,7 +4,6 @@ void AltBit::altbit()
 {
 	etat=E0;
 	//Err.write(0);
-	
 	while(1)
 	{
 		wait(H.posedge_event());
@@ -39,10 +38,10 @@ void AltBit::altbit()
 				}else
 				{
 					Err.write(0);
-					etat=E0;
+					etat=E1;
 					
 				}
 				break;			
 		}
-	}
+    }
 }
