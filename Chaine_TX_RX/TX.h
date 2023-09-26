@@ -2,7 +2,7 @@
 
 typedef enum{att,envoie} t_state;
 
- SC_MODULE(TX_)
+ SC_MODULE(TX)
 {
 	sc_in<bool>clk;
 	sc_fifo_in<sc_lv<8>>din;
@@ -18,7 +18,7 @@ typedef enum{att,envoie} t_state;
 	
 	void transmit();
 	
-	SC_CTOR(TX_)
+	SC_CTOR(TX)
 	{
 		state=att;
 		SC_THREAD(transmit);

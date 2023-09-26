@@ -2,6 +2,7 @@
 
 void TX::transmit()
 {
+	TxD.write(SC_LOGIC_1);
 	while(1)
 	{
 		wait(clk.posedge_event());
@@ -24,10 +25,10 @@ void TX::transmit()
 			case envoie:
 				if(i < 8)
 				{
+					i++;
 					TxD.write(temp[7]);
 					temp.range(7,1) = temp.range(6,0); //<<
-					temp[0] = 0;
-					i++;
+					temp[0] = 0;	
 				}
 				else{
 					state = att;

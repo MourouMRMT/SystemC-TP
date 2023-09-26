@@ -4,7 +4,8 @@
 SC_MODULE(Display)
 {
   // Ports
-  sc_fifo_in<sc_logic> e1;
+  sc_in<bool>clk;
+  sc_in<sc_logic> e1;
 
 
   // Processus principal
@@ -15,6 +16,7 @@ SC_MODULE(Display)
 
   SC_CTOR(Display) 
   {
-    SC_THREAD(printm);
+    SC_METHOD(printm);
+	sensitive<<clk;
   }
 };
